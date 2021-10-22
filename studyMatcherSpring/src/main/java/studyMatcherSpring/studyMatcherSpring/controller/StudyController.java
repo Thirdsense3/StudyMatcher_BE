@@ -116,6 +116,28 @@ public class StudyController {
         return new Result(result.size(), result);
     }
 
+    @PostMapping("/join")
+    public StudyDto joinStudy(@RequestBody JoinRequest joinRequest) {
+
+        Study study = studyService.joinStudy(joinRequest.getMember_id(), joinRequest.getStudy_id());
+        StudyDto studyDto = new StudyDto();
+
+        studyDto.setId(study.getId());
+        studyDto.setLeader(study.getLeader().getNickname());
+        studyDto.setStatus(study.getStatus());
+        studyDto.setLevel(study.getLevel());
+        studyDto.setLocation(study.getLocation());
+        studyDto.setType(study.getType());
+        studyDto.setName(study.getName());
+        return studyDto;
+    }
+
+    @Data
+    static class JoinRequest {
+        private Long member_id;
+        private Long study_id;
+    }
+
     @Data
     static class CreateStudyRequest {
         @NotEmpty

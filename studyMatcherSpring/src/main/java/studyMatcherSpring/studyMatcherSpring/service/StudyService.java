@@ -10,4 +10,5 @@ public interface StudyService {
     Long enroll(Study study, String text, Long leader_id);
     List<Study> findAllStudy(StudySearch studySearch);
     Study getStudyInform(Long id);
+    Study joinStudy(Long member_id, Long study_id);
 }

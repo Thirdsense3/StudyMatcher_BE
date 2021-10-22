@@ -45,7 +45,7 @@ public class StudyServiceV1 implements StudyService{
 
     @Override
     public Study getStudyInform(Long id) {
-        return studyRepository.findOne(id);
+        return studyRepository.findById(id);
     }
 
     private void createIntroFile(Study study, String text) {
@@ -68,5 +68,14 @@ public class StudyServiceV1 implements StudyService{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    @Transactional
+    public Study joinStudy(Long member_id, Long study_id) {
+        Member member = memberRepository.findById(member_id);
+        Study study = studyRepository.findById(study_id);
+        StudyJoin.createStudyJoin(study, member);
+        return study;
     }
 }
