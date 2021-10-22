@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 import studyMatcherSpring.studyMatcherSpring.dao.Study;
+import studyMatcherSpring.studyMatcherSpring.dao.StudyJoin;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -15,7 +17,7 @@ public class StudyRepositoryV1 implements StudyRepository{
     private final EntityManager em;
 
     @Override
-    public Study findOne(Long id) {
+    public Study findById(Long id) {
         return em.find(Study.class, id);
     }
 
@@ -58,10 +60,10 @@ public class StudyRepositoryV1 implements StudyRepository{
         TypedQuery<Study> query = em.createQuery(jpql, Study.class)
                 .setMaxResults(1000);
         if(StringUtils.hasText(studySearch.getLeader())) {
-            query = query.setParameter("nickname", studySearch.getLeader());
+            query = query.setParameter("nickname", "%" + studySearch.getLeader() + "%");
         }
         if(StringUtils.hasText(studySearch.getStudyName())) {
-            query = query.setParameter("name", studySearch.getStudyName());
+            query = query.setParameter("name", "%" + studySearch.getStudyName() + "%");
         }
         /*if(studySearch.getCategories().size() != 0) {
 
