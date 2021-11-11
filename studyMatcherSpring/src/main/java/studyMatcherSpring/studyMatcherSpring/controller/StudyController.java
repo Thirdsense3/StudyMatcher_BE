@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import studyMatcherSpring.studyMatcherSpring.dao.*;
+import studyMatcherSpring.studyMatcherSpring.dto.ResponseData;
 import studyMatcherSpring.studyMatcherSpring.repository.StudySearch;
 import studyMatcherSpring.studyMatcherSpring.service.StudyService;
 
@@ -43,7 +44,6 @@ public class StudyController {
                 .setType(request.getType())
                 .setLevel(request.getLevel())
                 .build();
-
 
         Long studyId = studyService.enroll(study, request.getText(), request.getLeader_id());
         Study enroll = studyService.getStudyInform(studyId);
@@ -130,6 +130,14 @@ public class StudyController {
         studyDto.setType(study.getType());
         studyDto.setName(study.getName());
         return studyDto;
+    }
+
+    /**
+     * TODO(exception 추가 )
+     * */
+    @GetMapping("/{id}/status/{status}")
+    public Boolean changeStatus(@PathVariable("id") Long studyId, @PathVariable("status") String studyStatus){
+        return studyService.changeStatus(studyId,studyStatus);
     }
 
     @Data

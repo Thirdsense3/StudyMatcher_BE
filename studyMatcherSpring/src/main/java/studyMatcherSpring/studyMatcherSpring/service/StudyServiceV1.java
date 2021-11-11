@@ -78,4 +78,10 @@ public class StudyServiceV1 implements StudyService{
         StudyJoin.createStudyJoin(study, member);
         return study;
     }
+
+    @Override
+    @Transactional
+    public Boolean changeStatus(Long studyId, String studyStatus){
+        return studyRepository.changeStatus(studyId,studyStatus);
+    }
 }

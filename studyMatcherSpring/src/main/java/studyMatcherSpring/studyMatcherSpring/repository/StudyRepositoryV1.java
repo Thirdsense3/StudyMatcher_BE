@@ -3,6 +3,7 @@ package studyMatcherSpring.studyMatcherSpring.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
+import studyMatcherSpring.studyMatcherSpring.dao.Status;
 import studyMatcherSpring.studyMatcherSpring.dao.Study;
 import studyMatcherSpring.studyMatcherSpring.dao.StudyJoin;
 
@@ -74,5 +75,15 @@ public class StudyRepositoryV1 implements StudyRepository{
     @Override
     public void save(Study study) {
         em.persist(study);
+    }
+
+    @Override
+    public Boolean changeStatus(Long id, String studyStatus){
+        Study study = em.find(Study.class, id);
+
+        /*
+        * TODO(JPA를 통한 table update 추가)
+        * */
+        return true;
     }
 }
