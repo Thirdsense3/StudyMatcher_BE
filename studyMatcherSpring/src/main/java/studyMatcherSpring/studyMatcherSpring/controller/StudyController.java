@@ -135,9 +135,10 @@ public class StudyController {
     /**
      * TODO(exception 추가 )
      * */
-    @GetMapping("/{id}/status/{status}")
-    public Boolean changeStatus(@PathVariable("id") Long studyId, @PathVariable("status") String studyStatus){
-        return studyService.changeStatus(studyId,studyStatus);
+    @PostMapping("/{id}/status")
+    public Boolean changeStatus(@PathVariable("id") Long studyId){
+
+        return studyService.changeStatus(studyId);
     }
 
     @Data

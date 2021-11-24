@@ -11,6 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+import static studyMatcherSpring.studyMatcherSpring.dao.Status.CLOSE;
+import static studyMatcherSpring.studyMatcherSpring.dao.Status.RECRUIT;
+
 @Repository
 @RequiredArgsConstructor
 public class StudyRepositoryV1 implements StudyRepository{
@@ -78,12 +81,17 @@ public class StudyRepositoryV1 implements StudyRepository{
     }
 
     @Override
-    public Boolean changeStatus(Long id, String studyStatus){
+    public Boolean ChangingStatus(Long id){
         Study study = em.find(Study.class, id);
+        Status nowStatus = study.getStatus();
 
-        /*
-        * TODO(JPA를 통한 table update 추가)
-        * */
+        if(nowStatus == RECRUIT){
+            study.changeStatus(CLOSE);
+        }
+        else{
+            study.changeStatus(RECRUIT);
+        }
+
         return true;
     }
 }

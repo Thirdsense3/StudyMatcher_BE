@@ -1,6 +1,5 @@
 package studyMatcherSpring.studyMatcherSpring.service;
 
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -81,7 +80,7 @@ public class StudyServiceV1 implements StudyService{
 
     @Override
     @Transactional
-    public Boolean changeStatus(Long studyId, String studyStatus){
-        return studyRepository.changeStatus(studyId,studyStatus);
+    public Boolean changeStatus(Long studyId){
+        return studyRepository.ChangingStatus(studyId);
     }
 }

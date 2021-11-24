@@ -11,5 +11,5 @@ public interface StudyService {
     List<Study> findAllStudy(StudySearch studySearch);
     Study getStudyInform(Long id);
     Study joinStudy(Long member_id, Long study_id);
-    Boolean changeStatus(Long studyId, String studyStatus);
+    Boolean changeStatus(Long studyId);
 }

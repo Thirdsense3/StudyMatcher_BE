@@ -58,6 +58,10 @@ public class Study {
         member.getLeadingStudy().add(this);
     }
 
+    public void changeStatus(Status status){
+        this.status = status;
+    }
+
     //--생성 메서드--//
     public void introPath(String path) {
         text = path;
