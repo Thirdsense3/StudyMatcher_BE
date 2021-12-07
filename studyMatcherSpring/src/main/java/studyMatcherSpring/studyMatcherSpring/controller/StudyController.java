@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import studyMatcherSpring.studyMatcherSpring.dao.*;
-import studyMatcherSpring.studyMatcherSpring.dto.ResponseData;
 import studyMatcherSpring.studyMatcherSpring.repository.StudySearch;
 import studyMatcherSpring.studyMatcherSpring.service.StudyService;
 
