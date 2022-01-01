@@ -2,9 +2,8 @@ package studyMatcherSpring.studyMatcherSpring.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import studyMatcherSpring.studyMatcherSpring.dao.Member;
-import studyMatcherSpring.studyMatcherSpring.dao.MemberAlarm;
+import studyMatcherSpring.studyMatcherSpring.dao.Alarm;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -39,10 +38,5 @@ public class JpaMemberRepository implements MemberRepository{
         return em.find(Member.class, id);
     }
 
-    @Override
-    public List<MemberAlarm> LoadAlarm(Long id){
-        return em.createQuery("select ma from MemberAlarm as ma where member_id = :id",MemberAlarm.class)
-                .setParameter("id",id)
-                .getResultList();
-    }
+
 }

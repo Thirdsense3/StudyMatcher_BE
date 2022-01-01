@@ -8,4 +8,5 @@ public interface MemberService {
     Long login(Member member);
     Boolean validateDuplicatedNickname(String nickname);
     Member getMemberInform(Long id);
+
 }
