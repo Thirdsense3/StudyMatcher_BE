@@ -21,10 +21,14 @@ public class StudyJoin {
     @JoinColumn(name = "study_id")
     private Study study;
 
+    @Enumerated(EnumType.STRING)
+    private JoinStatus status;
+
     public static StudyJoin createStudyJoin(Study study, Member member) {
         StudyJoin studyJoin = new StudyJoin();
         studyJoin.setStudy(study);
         studyJoin.setMember(member);
+        studyJoin.setStatus(JoinStatus.WAITING);
 
         study.getStudyJoins().add(studyJoin);
         member.getMyStudies().add(studyJoin);

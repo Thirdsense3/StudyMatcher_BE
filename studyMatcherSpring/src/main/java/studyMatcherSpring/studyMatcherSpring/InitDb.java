@@ -43,7 +43,7 @@ public class InitDb {
             Member member = createMember("UserB", Level.PLATINUM, "userB", new Location("incheon", "yeonsu"), "1234");
             em.persist(member);
 
-            Study study = createStudy(member, "test1", Type.CONTACT, Level.SILVER, "hello JPA");
+            Study study = createStudy(member, "test2", Type.CONTACT, Level.SILVER, "hello JPA");
             em.persist(study);
 
             Study study2 = createStudy(member, "test3", Type.CONTACT, Level.SILVER, "hello Spring2");

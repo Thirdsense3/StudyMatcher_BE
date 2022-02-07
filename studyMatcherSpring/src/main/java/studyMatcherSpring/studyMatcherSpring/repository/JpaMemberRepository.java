@@ -2,8 +2,8 @@ package studyMatcherSpring.studyMatcherSpring.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import studyMatcherSpring.studyMatcherSpring.dao.Member;
+import studyMatcherSpring.studyMatcherSpring.dao.Alarm;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -37,4 +37,6 @@ public class JpaMemberRepository implements MemberRepository{
     public Member findById(Long id) {
         return em.find(Member.class, id);
     }
+
+
 }

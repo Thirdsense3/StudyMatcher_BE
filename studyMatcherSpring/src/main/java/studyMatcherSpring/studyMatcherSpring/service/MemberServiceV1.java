@@ -45,11 +45,8 @@ public class MemberServiceV1 implements MemberService{
     public Boolean validateDuplicatedNickname(String nickname) {
 
         List<Member> members = memberRepository.findByNickname(nickname);
-        if(members.isEmpty()) {
-            return true;
-            //throw new IllegalStateException("wrong id");
-        }
-        return false;
+        //throw new IllegalStateException("wrong id");
+        return members.isEmpty();
     }
 
     public Member getMemberInform(Long id) {

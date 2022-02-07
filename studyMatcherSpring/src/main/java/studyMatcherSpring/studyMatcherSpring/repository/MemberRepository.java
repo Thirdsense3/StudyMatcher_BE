@@ -1,8 +1,8 @@
 package studyMatcherSpring.studyMatcherSpring.repository;
 
 import studyMatcherSpring.studyMatcherSpring.dao.Member;
+import studyMatcherSpring.studyMatcherSpring.dao.Alarm;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 public interface MemberRepository {
